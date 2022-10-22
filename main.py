@@ -143,7 +143,14 @@ def redraw():
     canvas.delete("all")
     canvas.after(100, redraw) #.1 seconds between drawings
     imagecount += 1
-    save(canvas, str(imagecount))
+    
+    if(imagecount < 10):
+        save(canvas, "00"+str(imagecount))
+    elif(imagecount < 100):
+        save(canvas, "0"+str(imagecount))
+    else:
+        save(canvas, str(imagecount))
+
 
     #does a conjugated rotation
     for i in range(len(shape[0])):
